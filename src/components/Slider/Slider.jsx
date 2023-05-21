@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Slider.css";
 import axios from "axios";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
+import StarRatings from "react-star-ratings";
 
 function Slider({ apiKey, baseUrl }) {
   const baseImageUrl = import.meta.env.VITE_IMAGE_URL;
@@ -43,6 +44,13 @@ function Slider({ apiKey, baseUrl }) {
     <h1>{upcomingMovies[index]?.title}</h1>
     <p className="slider-description">{upcomingMovies[index]?.overview.slice(0,130)}...</p>
     <p>Release Date: {upcomingMovies[index]?.release_date}</p>
+    <StarRatings 
+      rating={(upcomingMovies[index]?.vote_average) / 2}
+      starRatedColor="red"
+      numberOfStars={5}
+      starDimension="15px"
+      starSpacing="1px"
+    />
     </div>
   </div>)
 
