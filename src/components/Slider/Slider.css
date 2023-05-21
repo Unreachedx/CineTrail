@@ -21,7 +21,7 @@ opacity: 1;
 }
 
 .slider-info{
-    height: 35vh;
+    height: 36vh;
     position: absolute;
     z-index: 1;
     color: var(--white);
