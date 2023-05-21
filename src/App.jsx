@@ -6,8 +6,8 @@ import HomePage from './pages/HomePage/HomePage'
 
 
 function App() {
-  const apiKey = "08465c38c08edc9799de53e48d8f4492";
-  const baseUrl = "https://api.themoviedb.org/3"
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   return (
       <ThemeContextProvider>

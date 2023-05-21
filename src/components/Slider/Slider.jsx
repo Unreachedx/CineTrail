@@ -4,7 +4,7 @@ import axios from "axios";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 
 function Slider({ apiKey, baseUrl }) {
-  const baseImageUrl = "https://image.tmdb.org/t/p/original"
+  const baseImageUrl = import.meta.env.VITE_IMAGE_URL;
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [index, setIndex] = useState(0);
 
