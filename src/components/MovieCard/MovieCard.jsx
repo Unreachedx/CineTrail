@@ -11,7 +11,9 @@ export default function MovieCard({
   cardStyle,
   imgUrl,
   movieId,
-}) {
+}) 
+
+{
   const imageBaseUrl = import.meta.env.VITE_IMAGE_URL;
   const imageStyle = {
     backgroundImage: `url(${imageBaseUrl}/${imgUrl})`,
