@@ -34,7 +34,7 @@ function MovieDetails({baseUrl, apiKey}) {
           console.log(res.data)
         const youtubeLink = res.data.results.filter(item=>item.site==="YouTube" && item.type==="Trailer")
         setVideoLink(youtubeLink[0]?.key)
-        })
+        }).catch(err=>console.log(err))
 
         axios.get(`${baseUrl}/movie/${movieid}/reviews?api_key=${apiKey}`)
         .then(res=>{
@@ -90,11 +90,18 @@ function MovieDetails({baseUrl, apiKey}) {
         reviews.slice(0,reviewNumber).map(item=>{
             return <reviews key={item.id} review={item.review} />
         })
-     }
-</div>
+      }
+{
 
+reviewNumber >= totalReviews
+? <p className='"review-number' onClick={()=>setReviewNumber(3)}><em>End of Reviews.Collapse</em></p>
+: <p className='"review-number' onClick={()=>setReviewNumber(reviewNumber + 3)}><em>Read More</em></p>
+} 
+
+</div>
     </div>
     </div>
+
   )
 }
 
