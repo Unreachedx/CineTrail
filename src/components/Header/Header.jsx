@@ -5,11 +5,12 @@ import { MdOutlineDarkMode,MdOutlineLightMode } from "react-icons/md";
 import { ThemeContext } from '../../contexts/ThemeContext';
 import {UserContext} from '../../contexts/UserContext';
 import axios from 'axios'
+import SearchResults from '../SearchResults/SearchResults';
 
 function Header({baseUrl,apiKey}) {
 
 const navigate= useNavigate();
-const {darkMode,setDarkMode}=useContext(ThemeContext)
+const {darkMode,setDarkMode}=useContext(ThemeContext) 
 const {user, token,setToken}=useContext(UserContext)
 const [query,setQuery]=useState('');
 const [searchResults,setSearchResults]=useState([]);

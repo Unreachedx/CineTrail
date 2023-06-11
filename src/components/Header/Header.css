@@ -2,7 +2,7 @@
     color: var(--white);
     height: var(--header-height);
     background-color: var(--transparent-bg);
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     padding: 0 20px;

@@ -16,7 +16,6 @@
     background-color:var(--dark-bg)
 }
 .trailer-player{
-    position: absolute;
     top: 0;
     left: 0; 
 }
