@@ -10,6 +10,7 @@ export default function MovieCard({
   radius,
   cardStyle,
   imgUrl,
+  data,
   movieId,
 }) 
 
@@ -20,8 +21,8 @@ export default function MovieCard({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    width,
-    height,
+    width: width,
+    height: height,
     position: "relative",
     borderRadius: radius,
     boxShadow:
@@ -30,13 +31,13 @@ export default function MovieCard({
         : null,
   };
 
-  const hyperRef = `/movieDetails/${movie.id}`;
+  const hyperRef = `/movieDetails/${movie.id}`; 
   return (
-    <Link to={hyperRef} className={cardStyle}>
+/*     {<Link to={data.id ? `/moviedetails/${data?.id}` : `/moviedetails/${data?.tmdb_id}`}  className={cardStyle}>
       <div style={imageStyle}>
         <div className="movie-info-top">
           <StarRatings
-            rating={movie?.vote_average / 2}
+            rating={data?.vote_average / 2}
             starRatedColor="red"
             numberOfStars={5}
             starDimension="15px"
@@ -44,11 +45,12 @@ export default function MovieCard({
           />
         </div>
         <div className="movie-info-bottom">
-          <p>{movie?.title}</p>
-          <p>Rating:{movie?.vote_average / 2} </p>
+          <p>{data?.title}</p>
+          <p>Rating:{data?.vote_average / 2} </p>
         </div>
       </div>
-      {cardStyle === "top-rated-card" ? <p>{movie?.title}</p> : null}
-    </Link>
+      {cardStyle === "top-rated-card" ? <p>{data?.title}</p> : null}
+    </Link>} */
+    <p>Hello</p>
   );
 }

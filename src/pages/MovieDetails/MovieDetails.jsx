@@ -11,7 +11,7 @@ import Review from '../../components/Review/Review'
 
 export default function MovieDetails({baseUrl,apiKey,serverUrl}) {
 
-  const {movieid} = useParams();
+/*   const {movieid} = useParams();
   const [videoLink,setVideoLink]=useState(''); 
   const [movie,setMovie]=useState([]);
   const [movieRating,setMovieRating]=useState(0);
@@ -20,14 +20,14 @@ export default function MovieDetails({baseUrl,apiKey,serverUrl}) {
   const [reviewNumber,setReviewNumber]=useState(3)
   const {darkMode,setDarkMode}=useContext(ThemeContext)
   const {user,token}=useContext(UserContext) 
-  const [added,setAdded]=useState(false)
+  const [added,setAdded]=useState(false) */
 
   
 
 
   
   
-useEffect(() => {  
+/* useEffect(() => {  
         axios.get(`${baseUrl}/movie/${movieid}?api_key=${apiKey}`)
         .then(res=>{
           console.log(res.data)
@@ -53,11 +53,11 @@ useEffect(() => {
         .catch(err=>console.log(err))
 
 
-}, [movieid])
+}, [movieid]) */
 
 
 
-const addToFavorites=()=>{
+/* const addToFavorites=()=>{
     console.log(serverUrl)
     if(!token){
        alert('Please login to add a movie to your favorites.')
@@ -96,14 +96,14 @@ useEffect(() => {
       }
     })
     .catch(err=>console.log(err))
-}, [user,movie])
+}, [user,movie]) */
 
 return ( 
   <div className={darkMode ?"movie-details-container" : "movie-details-container details-light"}>
-    {
-      videoLink ? 
+ {/*    {
+      videoLink ?  */}
       <div className="trailer-container">
-      <ReactPlayer className="trailer-player" url={`https://www.youtube.com/watch?v=${videoLink}`}
+      {/* <ReactPlayer className="trailer-player" url={`https://www.youtube.com/watch?v=${videoLink}`}
           config={{
             youtube: {
               playerVars: { showinfo: 1,origin:"http://localhost:3000" }
@@ -112,25 +112,25 @@ return (
           // playing
           width='100%'
           height='100%'
-        />
+        /> */}
     </div>
-    : <div className="trailer-container-blank" style={{
+    {/* : <div className="trailer-container-blank" style={{
       backgroundImage:`url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
       backgroundPosition:"center",
       backgroundSize:"cover"
       }}><p>No Trailers Released Yet</p></div> 
-  }
+  } */}
 
     <div className={darkMode ?"details-container" :"details-container details-light" }>
           <div className="title-container">
             <h1>{movie.title}</h1>
-            {
+{/*             {
               added 
               ? <span className="remove-btn" onClick={removeFromFavorites}>Remove from favorites.</span> 
               : <span className="add-btn" onClick={addToFavorites}>Add to favorites.</span>
-            }
+            } */}
           </div>
-          <Rating movieRating={movieRating}/>
+          {/* {<Rating movieRating={movieRating}/>}
           <div className="info-container">
              <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="details-poster"/>
              <div className="movie-info">
@@ -140,11 +140,11 @@ return (
                 <h4>Runtime: <span>{movie.runtime} min.</span></h4>
                 <h4>Budget: <span>{movie.budget}</span></h4>
                 <Genres component="details" movieGenres={movie?.genres} baseUrl={baseUrl} apiKey={apiKey}/>    
-             </div> 
+             </div>  */}
           </div>
           <div className="review-container">
               <p className="reviews-title">Reviews</p>
-              {
+             {/* { {
                   reviews.slice(0,reviewNumber).map(item=>{
                     return <Review key={item.id} review={item}/>
                   })
@@ -153,9 +153,9 @@ return (
                   reviewNumber >= totalReviews 
                   ? <p className="review-number" onClick={()=>setReviewNumber(3)}><em>End of reviews.Collapse</em></p>
                   : <p className="review-number" onClick={()=>setReviewNumber(reviewNumber+3)}><em>Read more reviews</em></p>
-              }
+              }} */}
               
-          </div>
+          {/* </div> */}
     </div>
 
   </div>

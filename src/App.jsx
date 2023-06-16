@@ -17,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <CombineContextProvider>
-        <Header />
+        <Header apiKey={apiKey} baseUrl={baseUrl}/>
         <Routes>
           <Route path="/" element={<HomePage apiKey={apiKey} baseUrl={baseUrl} />} />
           <Route path="/moviedetails/:movieid" element={<MovieDetails serverUrl={serverUrl} apiKey={apiKey} baseUrl={baseUrl}/>} />

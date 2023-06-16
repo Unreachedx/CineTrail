@@ -18,7 +18,7 @@ const [profileOptions,setProfileOptions]=useState(false)
 
 useEffect(() => {
   if(query.trim().length>0){
-      axios.get(`${baseUrl}/search/movie?api_key=${apiKey}&query=${query}`)
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=08465c38c08edc9799de53e48d8f4492&query=${query}`)
       .then(res=>{
          setSearchResults(res.data.results)
       }) 
@@ -44,12 +44,12 @@ const handleTheme = () => {
     <div className={darkMode ?"header-container":"header-container header-light" }>
       <Link className="logo" to="/">CineTrail</Link>
       <div className="search-container">
-            <input
+{            <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className={`search-input ${query && "input-active"} ${!query && !darkMode && "input-light"}`}
               placeholder="Search movies..."
-            />
+            />}
 
             {query.trim() !== '' && (
               <div className="search-results-container"> 
