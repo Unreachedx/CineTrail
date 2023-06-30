@@ -1,56 +1,43 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import StarRatings from "react-star-ratings";
-import "./MovieCard.css";
+import React,{useState,useEffect} from 'react';
+import './movieCard.css';
+import {Link} from 'react-router-dom';
+import Rating from '../Rating/Rating';
 
-export default function MovieCard({
-  movie,
-  width,
-  height,
-  radius,
-  cardStyle,
-  imgUrl,
-  data,
-  movieId,
-}) 
+ 
 
-{
-  const imageBaseUrl = import.meta.env.VITE_IMAGE_URL;
-  const imageStyle = {
-    backgroundImage: `url(${imageBaseUrl}/${imgUrl})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    width: width,
-    height: height,
-    position: "relative",
-    borderRadius: radius,
-    boxShadow:
-      cardStyle === "popular-card"
-        ? "rgba(118, 118, 118, 0.75) 0px 0px 10px 0px"
-        : null,
-  };
+export default function MovieCard({data,imageUrl,width,height,cardStyle,radius}) {
 
-  const hyperRef = `/movieDetails/${movie.id}`; 
-  return (
-/*     {<Link to={data.id ? `/moviedetails/${data?.id}` : `/moviedetails/${data?.tmdb_id}`}  className={cardStyle}>
-      <div style={imageStyle}>
-        <div className="movie-info-top">
-          <StarRatings
-            rating={data?.vote_average / 2}
-            starRatedColor="red"
-            numberOfStars={5}
-            starDimension="15px"
-            starSpacing="1px"
-          />
-        </div>
-        <div className="movie-info-bottom">
-          <p>{data?.title}</p>
-          <p>Rating:{data?.vote_average / 2} </p>
-        </div>
-      </div>
-      {cardStyle === "top-rated-card" ? <p>{data?.title}</p> : null}
-    </Link>} */
-    <p>Hello</p>
-  );
+const [rating,setRating]=useState(Math.round(data?.vote_average/2))
+
+const imageStyle={
+  backgroundImage:`url("https://image.tmdb.org/t/p/w500/${imageUrl}")`, 
+  width:width,
+  height:height,
+  backgroundRepeat: "no-repeat", 
+  backgroundSize: 'cover',
+  backgroundPosition:'center', 
+  position:'relative',
+  borderRadius:radius, 
+  boxShadow: cardStyle==="popular-card"?"0px 0px 10px 0px rgba(118,118,118,0.75)":null
 }
+
+  return (
+    <Link  to={data.id ? `/moviedetails/${data?.id}` : `/moviedetails/${data?.tmdb_id}`} className={cardStyle}>
+      <div style={imageStyle}>
+          <div className="movie-info-top">
+            <Rating movieRating={rating}/>
+          </div> 
+          <div className="movie-info-bottom">  
+            <p>{data?.title}</p>
+            <p>Rating: {rating}</p>
+          </div>  
+      </div> 
+      {
+        cardStyle==="top-rated-card" 
+        ? <p>{data?.title}</p>
+        : null
+      }
+    
+    </Link>
+  )
+} 

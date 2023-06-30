@@ -1,32 +1,34 @@
-import React,{useState,useContext} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './signIn.css'
-import {UserContext} from '../../contexts/UserContext';
 import {ThemeContext} from '../../contexts/ThemeContext';
+import {UserContext} from '../../contexts/UserContext';
 
 function SignIn({serverUrl}) {
     const navigate = useNavigate();
-    const {user,setUser,token,setToken}=useContext(UserContext) 
-    const {darkMode,setDarkMode}=useContext(ThemeContext)  
-    const [email,setEmail]=useState('');
-    const [password,setPassword]=useState('');
+    const{user,setUser, token,setToken}=useContext(UserContext);
+    const {darkMode,setDarkMode}=useContext(ThemeContext)
+    const [email, setEmail]=useState('');
+    const [password, setPassword]=useState('');
 
 
-
-    const handleSignIn=(e)=>{ 
+    const handleSignIn=(e)=>{
         e.preventDefault();
-        axios.post(`${serverUrl}users/login`,{email,password})
+        axios.post(`${serverUrl}users/login`, {email,password})
         .then(res=>{
             console.log(res.data)
             setUser(res.data)
             setToken(res.data.token)
-            localStorage.setItem('token',res.data.token)
-            localStorage.setItem('userInfo',JSON.stringify(res.data))
+            localStorage.setItem('token', res.data.token)
+            localStorage.setItem('userInfo', JSON.stringify(res.data))
             navigate('/')
+
         })
-        .catch(err=>console.log(err))   
-    } 
+        .catch(err=>console.log(err))
+    }
+    
+
   return (
     <div className={darkMode ? "signup-container" : "signup-container signup-light"}>
         {

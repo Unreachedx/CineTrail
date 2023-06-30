@@ -1,31 +1,33 @@
-import "./App.css";
-import Header from "./components/Header/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
+import './App.css';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import CombinedContextProvider from './contexts/index'
+import Header from './components/Header/Header';
+import HomePage from './pages/HomePage/HomePage';
 import MovieDetails from './pages/MovieDetails/MovieDetails';
-import SignUp from "./pages/SignUp/SignUp";
-import SignIn from "./pages/SignIn/SignIn";
-import CombineContextProvider from "./contexts/ThemeContext"
-import MyFavorites from "./pages/MyFavorites/MyFavorites";
-
-function App() {
-  const apiKey = import.meta.env.VITE_API_KEY;
-  const baseUrl = import.meta.env.VITE_BASE_URL;
-  const serverUrl = import.meta.env.VITE_SERVER_URL;
+import SignIn from './pages/SignIn/SignIn';
+import SignUp from './pages/SignUp/SignUp';
+import MyFavorites from './pages/MyFavorites/MyFavorites';
 
 
+
+
+function App() { 
+
+  const apiKey=import.meta.env.VITE_API_KEY;
+  const baseUrl=import.meta.env.VITE_BASE_URL;
+  const serverUrl=import.meta.env.VITE_SERVER_URL;
   return (
     <BrowserRouter>
-      <CombineContextProvider>
-        <Header apiKey={apiKey} baseUrl={baseUrl}/>
-        <Routes>
-          <Route path="/" element={<HomePage apiKey={apiKey} baseUrl={baseUrl} />} />
-          <Route path="/moviedetails/:movieid" element={<MovieDetails serverUrl={serverUrl} apiKey={apiKey} baseUrl={baseUrl}/>} />
-          <Route path="/myFavorites" element={<MyFavorites serverUrl={serverUrl} apiKey={apiKey} baseUrl={baseUrl}/>} />
-          <Route path="/signIn" element={<SignIn serverUrl={serverUrl} /> } />
-          <Route path="/signUp" element={<SignUp serverUrl={serverUrl} /> } />
-        </Routes>
-      </CombineContextProvider>
+      <CombinedContextProvider>
+         <Header baseUrl={baseUrl} apiKey={apiKey}/>
+         <Routes>
+           <Route path="/" element={<HomePage apiKey={apiKey} baseUrl={baseUrl}/>} />
+           <Route path="/moviedetails/:movieid" element={<MovieDetails serverUrl={serverUrl}  baseUrl={baseUrl} apiKey={apiKey}/>}/>
+           <Route path="/myfavorites" element={<MyFavorites serverUrl={serverUrl} baseUrl={baseUrl} apiKey={apiKey}/>}/>
+           <Route path="/signup" element={<SignUp serverUrl={serverUrl}/>}/>
+           <Route path="/signin" element={<SignIn serverUrl={serverUrl}/>}/>
+         </Routes>
+      </CombinedContextProvider> 
     </BrowserRouter>
   );
 }

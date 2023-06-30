@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from 'react'
+import {useState,useEffect,useContext} from 'react'
 import MovieCard from '../../components/MovieCard/MovieCard';
 import './MyFavorites.css';
 import axios from 'axios';
@@ -9,7 +9,7 @@ function MyFavorites({serverUrl}) {
     const {user,token}=useContext(UserContext) 
 
 useEffect(() => { 
-     axios.get(`${serverUrl}favoriteMovies/user/${user?._id}`)
+     axios.get(`${serverUrl}/favoriteMovies/user/${user?._id}`)
      .then(res=>{ 
       console.log(res.data)
       setMovies(res.data.favorites)

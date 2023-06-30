@@ -1,5 +1,5 @@
-import {useState,useContext} from 'react'
-import './SignUp.css'
+import React,{useState,useEffect,useContext,CSSProperties} from 'react'
+import './signUp.css'
 import axios from 'axios';
 import {ThemeContext} from '../../contexts/ThemeContext';
 import {UserContext} from '../../contexts/UserContext';
@@ -8,35 +8,37 @@ import { Link } from 'react-router-dom';
 
 
 function SignUp({serverUrl}) { 
- 
+
     const {token}=useContext(UserContext)
-    const {darkMode,setDarkMode}=useContext(ThemeContext)  
-    const [email,setEmail]=useState(''); 
-    const [password,setPassword]=useState('');
-    const [username,setUsername]=useState('');
-    const [success,setSuccess]=useState(false)
+    const {darkMode,setDarkMode}=useContext(ThemeContext)
+    const [email, setEmail]=useState('');
+    const [password, setPassword]=useState('');
+    const [username, setUsername]=useState('');
+    const [success, setSuccess]=useState(false);
 
  
 
- 
-    
 
-    const handleSignUp=(e)=>{
-        e.preventDefault();
-        axios.post(`${serverUrl}users/signup`,{email,password,username})
-        .then(res=>{
-            console.log(res.data)
-            if(res.data.status===409){
-                alert('There is another user with this email. Please sign up with a different email.')
-            }else{
-                setSuccess(true) 
-                setPassword('')
-                setEmail('')
-                setUsername('')
-            }
-        })
-        .catch(err=>console.log(err))
+const handleSignUp=(e)=>{
+    e.preventDefault();
+    axios.post(`${serverUrl}users/signUp`, {email,password,username})
+    .then(res=>{
+        console.log(res.data)
+        if(res.data.status===409){
+        alert('There is another user with this email. Please sign in with a different email.')
+    }else{
+        setSuccess(true)
+        setPassword('')
+        setEmail('')
+        setUsername('')
+
     }
+    })
+    .catch(err=>console.log(err))
+}
+
+
+    
  
   return ( 
     <div className={darkMode ? "signup-container" : "signup-container signup-light"} >
