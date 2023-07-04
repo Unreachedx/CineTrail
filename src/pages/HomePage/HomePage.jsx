@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react'
 import axios from 'axios';
-import './Homepage.css'
+import './HomePage.css'
 import Slider from '../../components/Slider/Slider';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import {ThemeContext} from '../../contexts/ThemeContext';
