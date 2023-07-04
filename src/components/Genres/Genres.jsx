@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './ Genres.css'
+import './Genres.css'
 
 export default function Genres({ movieGenres, baseUrl, apiKey,component }) {
 
