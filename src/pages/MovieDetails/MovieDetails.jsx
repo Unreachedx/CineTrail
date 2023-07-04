@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
-
 import { ThemeContext } from '../../contexts/ThemeContext';
 import {UserContext} from '../../contexts/UserContext';
 import Review from '../../components/Review/Review';
