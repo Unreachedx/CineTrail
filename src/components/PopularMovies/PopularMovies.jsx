@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import axios from "axios";
+import './PopularMovies.css'
 
 export default function PopularMovies({ apiKey, baseUrl }) {
   const [popularMovies, setPopularMovies] = useState([]);

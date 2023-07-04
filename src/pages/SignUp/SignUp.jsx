@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useContext,CSSProperties} from 'react'
-import './signUp.css'
+import './SignUp.css'
 import axios from 'axios';
 import {ThemeContext} from '../../contexts/ThemeContext';
 import {UserContext} from '../../contexts/UserContext';

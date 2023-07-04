@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 import avatar from '../../assets/avatar.jpeg';
-import './review.css';
+import './Review.css';
 import {ThemeContext} from '../../contexts/ThemeContext';
  
 

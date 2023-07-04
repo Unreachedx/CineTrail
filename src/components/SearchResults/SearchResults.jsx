@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import './searchResults.css'
+import './SearchResults.css'
 import { useNavigate} from "react-router-dom";
 import noImage from '../../assets/no-image.svg.png'
 

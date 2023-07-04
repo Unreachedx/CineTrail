@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import './movieCard.css';
+import './MovieCard.css';
 import {Link} from 'react-router-dom';
 import Rating from '../Rating/Rating';
 

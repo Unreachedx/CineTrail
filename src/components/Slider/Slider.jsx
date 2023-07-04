@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import { MdKeyboardArrowRight,MdKeyboardArrowLeft } from "react-icons/md";
-import './slider.css'
+import './Slider.css'
 import Genres from '../Genres/Genres';
 import Rating from '../Rating/Rating';
 import {Link} from 'react-router-dom';

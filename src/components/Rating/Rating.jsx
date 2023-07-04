@@ -1,5 +1,6 @@
 import React from 'react';
 import StarRatings from 'react-star-ratings';
+import './Rating.css'
 
 function Rating({movieRating}) {
   
